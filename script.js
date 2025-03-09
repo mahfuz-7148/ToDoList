@@ -52,3 +52,6 @@ ListContainer.addEventListener("click", (ev) => {
     saveData();
   }
 });
+let saveData = () => localStorage.setItem("data", ListContainer.innerHTML);
+let showTask = () => ListContainer.innerHTML = localStorage.getItem("data");
+showTask();
