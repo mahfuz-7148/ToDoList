@@ -26,8 +26,8 @@ ListContainer.addEventListener("click", (ev) => {
     li.remove();
     saveData();
   } else if (ev.target.classList.contains("edit")) {
-    let text = li.querySelector("span").textContent;
-    li.innerHTML = `<input value="${text}" type="text" class="editInput flex-1 p-2 border mr-3 rounded-lg focus:ring-2 focus:ring-blue-500">
+    let text = li.querySelector("span").textContent.trim();
+    li.innerHTML = `<input value="${text}" type="text" class="editInput flex-1 p-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
     <span>
     <button class="save text-white px-4 py-2 rounded-lg hover:bg-slate-200 cursor-pointer">
     <img class="save" src="./iconImage/floppy-disk.png">
@@ -53,5 +53,5 @@ ListContainer.addEventListener("click", (ev) => {
   }
 });
 let saveData = () => localStorage.setItem("data", ListContainer.innerHTML);
-let showTask = () => ListContainer.innerHTML = localStorage.getItem("data");
+let showTask = () => (ListContainer.innerHTML = localStorage.getItem("data"));
 showTask();
